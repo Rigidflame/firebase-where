@@ -6,25 +6,25 @@ Ever wanted to search users, posts, or anything in a firebase with a "where" fil
 Example
 -------
 
-  // Create a normal ref
-  var ref = new Firebase(URL);
-  // Set up our where (which will write to /_index in your Firebase
-  var firebaseWhere = new FirebaseWhere(ref);
+    // Create a normal ref
+    var ref = new Firebase(URL);
+    // Set up our where (which will write to /_index in your Firebase
+    var firebaseWhere = new FirebaseWhere(ref);
+    
+    // Add some children
+    firebaseWhere.child('users/abe').setWithIndex({username: 'abe', color: 'red', town: 'sf'});
+    firebaseWhere.child('users/joe').setWithIndex({username: 'joe', color: 'pink', town: 'bl'});
+    firebaseWhere.child('users/jacki').setWithIndex({username: 'jacki', color: 'pink', town: 'bl'});
+    
+    // Watch for users who are in BL and whose color is pink.
+    firebaseWhere.onWithQuery("child_added", {town: 'bl', color: 'pink'} function (snapshot) {
+      console.log(snapshot.val()); // Will trigger for Joe and Jacki
+    });
+    
+    // Adding more children
+    firebaseWhere.child('users/nate').setWithIndex({username: 'nate', color: 'red', town: 'el'});    // Wont trigger event :(
+    firebaseWhere.child('users/becki').setWithIndex({username: 'becki', color: 'pink', town: 'bl'}); // Will trigger event :)
 
-  // Add some children
-  firebaseWhere.child('users/abe').setWithIndex({username: 'abe', color: 'red', town: 'sf'});
-  firebaseWhere.child('users/joe').setWithIndex({username: 'joe', color: 'pink', town: 'bl'});
-  firebaseWhere.child('users/jacki').setWithIndex({username: 'jacki', color: 'pink', town: 'bl'});
-  
-  // Watch for users who are in BL and whose color is pink.
-  firebaseWhere.onWithQuery("child_added", {town: 'bl', color: 'pink'} function (snapshot) {
-    console.log(snapshot.val()); // Will trigger for Joe and Jacki
-  });
-  
-  // Adding more children
-  firebaseWhere.child('users/nate').setWithIndex({username: 'nate', color: 'red', town: 'el'});    // Wont trigger event :(
-  firebaseWhere.child('users/becki').setWithIndex({username: 'becki', color: 'pink', town: 'bl'}); // Will trigger event :)
-  
 Credits
 -------
 
