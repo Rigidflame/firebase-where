@@ -1,0 +1,18 @@
+{
+  "name": "FirebaseWhere",
+  "version": "0.1.0",
+  "description": "Simple, efficient 'where' filtering in Firebase",
+  "main": "firebase-where.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abraham Haskins <abe@rigidflame.com>",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^1.0.15-3",
+    "underscore": "^1.6.0"
+  }
+}
