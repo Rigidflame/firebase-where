@@ -17,7 +17,7 @@ Example
     firebaseWhere.child('users/jacki').setWithIndex({username: 'jacki', color: 'pink', town: 'bl'});
     
     // Watch for users who are in BL and whose color is pink.
-    firebaseWhere.onWithQuery("child_added", {town: 'bl', color: 'pink'} function (snapshot) {
+    firebaseWhere.onWithQuery("child_added", {town: 'bl', color: 'pink'}, function (snapshot) {
       console.log(snapshot.val()); // Will trigger for Joe and Jacki
     });
     
