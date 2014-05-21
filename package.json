@@ -1,10 +1,14 @@
 {
-  "name": "FirebaseWhere",
-  "version": "0.1.0",
+  "name": "firebase-where",
+  "version": "0.1.2",
   "description": "Simple, efficient 'where' filtering in Firebase",
   "main": "firebase-where.js",
   "directories": {
     "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rigidflame/firebase-where.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
